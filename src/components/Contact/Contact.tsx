@@ -2,7 +2,7 @@ import React from "react";
 
 export const Contact: React.FC = () => {
   return (
-    <section className="contact section-padding" data-scroll-index="6">
+    <section className="contact section-padding" data-scroll-index="3">
       <div className="container">
         <div className="row">
           <div className="section-head">

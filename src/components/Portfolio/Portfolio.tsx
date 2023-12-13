@@ -2,7 +2,7 @@ import React from "react";
 
 export const Portfolio: React.FC = () => {
   return (
-    <section className="portfolio section-padding pb-70 bg-gray" data-scroll-index="3">
+    <section className="portfolio section-padding pb-70 bg-gray" data-scroll-index="2">
       <div className="container">
         <div className="row">
 

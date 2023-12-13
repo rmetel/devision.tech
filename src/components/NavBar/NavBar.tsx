@@ -21,7 +21,8 @@ export const NavBar: React.FC = () => {
           <ul className="nav navbar-nav navbar-right">
             <li><a href="#" data-scroll-nav="0" className="active">Home</a></li>
             <li><a href="#" data-scroll-nav="1">Leistungen</a></li>
-            <li><a href="#" data-scroll-nav="2">Kontakt</a></li>
+            <li><a href="#" data-scroll-nav="2">Portfolio</a></li>
+            <li><a href="#" data-scroll-nav="3">Kontakt</a></li>
           </ul>
         </div>
       </div>
