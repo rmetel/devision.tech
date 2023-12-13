@@ -13,21 +13,15 @@ export const NavBar: React.FC = () => {
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-
           <a className="logo" href="#">Metzner</a>
         </div>
 
         {/* Collect the nav links, and other content for toggling */}
         <div className="collapse navbar-collapse" id="nav-icon-collapse">
-
           <ul className="nav navbar-nav navbar-right">
             <li><a href="#" data-scroll-nav="0" className="active">Home</a></li>
-            <li><a href="#" data-scroll-nav="1">About</a></li>
-            <li><a href="#" data-scroll-nav="2">Services</a></li>
-            <li><a href="#" data-scroll-nav="3">Works</a></li>
-            <li><a href="#" data-scroll-nav="4">Clients</a></li>
-            <li><a href="#" data-scroll-nav="5">Blog</a></li>
-            <li><a href="#" data-scroll-nav="6">Contact</a></li>
+            <li><a href="#" data-scroll-nav="1">Leistungen</a></li>
+            <li><a href="#" data-scroll-nav="2">Kontakt</a></li>
           </ul>
         </div>
       </div>
