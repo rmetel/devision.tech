@@ -11,6 +11,10 @@ export default defineConfig({
       "~": path.resolve(__dirname, "./src"),
       "~bootstrap": path.resolve(__dirname, "./src/bootstrap.min.css"),
       "~styles": path.resolve(__dirname, "./src/style.scss"),
+      "~izitoast": path.resolve(
+        __dirname,
+        "node_modules/izitoast/dist/css/iziToast.min.css",
+      ),
     },
   },
   build: {
