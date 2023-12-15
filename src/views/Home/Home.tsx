@@ -1,5 +1,12 @@
 import React from "react";
-import { Contact, Hero, Numbers, Portfolio, Services } from "~/components";
+import {
+  Contact,
+  Footer,
+  Hero,
+  Numbers,
+  Portfolio,
+  Services,
+} from "~/components";
 
 export const Home: React.FC = () => {
   return (
@@ -9,6 +16,7 @@ export const Home: React.FC = () => {
       <Numbers />
       <Portfolio />
       <Contact />
+      <Footer />
     </>
   );
 };
