@@ -33,9 +33,13 @@ export const NavBar: React.FC = () => {
         <div className="collapse navbar-collapse" id="nav-icon-collapse">
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <a href="#" data-scroll-nav="0" className="active">
-                Home
-              </a>
+              {location.pathname === "/" ? (
+                <a href="#" data-scroll-nav="0" className="active">
+                  Home
+                </a>
+              ) : (
+                <a href="/">Home</a>
+              )}
             </li>
             <li>
               <a href="#" data-scroll-nav="1">
@@ -48,7 +52,12 @@ export const NavBar: React.FC = () => {
               </a>
             </li>
             <li>
-              <a href="/jobs">Jobs</a>
+              <a
+                href="/jobs"
+                className={location.pathname === "/jobs" ? "active" : ""}
+              >
+                Jobs
+              </a>
             </li>
             <li>
               <a href="#" data-scroll-nav="3">
