@@ -1,8 +1,8 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "izitoast/dist/js/iziToast.min";
-import "./App.css";
-import { Home } from "~/views";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { NavBar, PreLoader } from "~/components";
+import { Bewerbung, Home } from "~/views";
+import "./App.css";
 
 export const App = () => {
   return (
@@ -12,6 +12,7 @@ export const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/jobs" element={<Bewerbung />} />
         </Routes>
       </Router>
     </div>

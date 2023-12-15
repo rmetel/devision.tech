@@ -11,7 +11,12 @@ import {
 export const Home: React.FC = () => {
   return (
     <>
-      <Hero />
+      <Hero
+        headline="Willkommen"
+        blc="bei"
+        wordOne="Metzner Gruppe"
+        wordTwo="Photovoltaik Experten"
+      />
       <Services />
       <Numbers />
       <Portfolio />

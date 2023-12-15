@@ -19,7 +19,10 @@ export const NavBar: React.FC = () => {
             <span className="icon-bar"></span>
           </button>
 
-          <img src="/img/logo.png" className="logo-fullscreen" />
+          {/* Logo fullscreen */}
+          <a href="/">
+            <img src="/img/logo.png" className="logo-fullscreen" />
+          </a>
 
           <a className="logo" href="#">
             Metzner
@@ -43,6 +46,9 @@ export const NavBar: React.FC = () => {
               <a href="#" data-scroll-nav="2">
                 Portfolio
               </a>
+            </li>
+            <li>
+              <a href="/jobs">Jobs</a>
             </li>
             <li>
               <a href="#" data-scroll-nav="3">

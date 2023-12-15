@@ -1,3 +1,4 @@
+export { Application } from "./Application";
 export { Contact } from "./Contact";
 export { Footer } from "./Footer";
 export { Hero } from "./Hero";
