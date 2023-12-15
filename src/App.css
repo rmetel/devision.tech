@@ -52,3 +52,19 @@
     margin-bottom: 0 !important;
   }
 }
+
+.logo-fullscreen {
+  width: 150px;
+}
+
+.logo {
+  display: none;
+}
+
+.nav-scroll .logo-fullscreen {
+  display: none;
+}
+
+.nav-scroll .logo {
+  display: block;
+}
