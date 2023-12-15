@@ -9,11 +9,9 @@ export const Footer: React.FC = () => {
             Metzner-Gruppe 2023 &copy; Alle Rechte vorbehalten
           </h6>
           <br />
-          <p>
-            <a href="#">
-              <h6 style={{ color: "#999", fontSize: 14 }}>Impressum</h6>
-            </a>
-          </p>
+          <a href="#">
+            <h6 style={{ color: "#999", fontSize: 14 }}>Impressum</h6>
+          </a>
         </div>
       </div>
     </footer>
