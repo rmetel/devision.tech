@@ -1,0 +1,33 @@
+.scrollToTop {
+  position: fixed;
+  right: 1rem;
+  bottom: 3rem;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 0.5rem;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.5s ease;
+  font-weight: 700;
+  background-color: #d7d7d7;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.scrollToTop.visible {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.scrollToTop:hover {
+  background-color: #bcbcbc;
+}
+
+img.scrollToTop {
+  width: 32px;
+  height: 32px;
+}

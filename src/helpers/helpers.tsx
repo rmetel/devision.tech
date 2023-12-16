@@ -8,7 +8,7 @@ export const showToast = (
 
   switch (type) {
     case "info":
-      color = "rgb(233,241,245)";
+      color = "rgb(237,222,101)";
       break;
     case "error":
       color = "rgb(241,81,86)";
@@ -34,3 +34,5 @@ export const getApiUrl = () => {
   const apiEndpoint = "/api";
   return isLocal ? localHost + apiEndpoint : apiEndpoint;
 };
+
+export const scrollToTop = $("html, body").animate({ scrollTop: 0 }, "slow");

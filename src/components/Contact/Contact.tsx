@@ -3,22 +3,28 @@ import { getApiUrl, showToast } from "~/helpers";
 import axios from "axios";
 
 export const Contact: React.FC = () => {
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [name, setName] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+
+  const [buttonText, setButtonText] = useState<string>("Nachricht senden");
 
   const apiUrl = getApiUrl();
 
   const handleClick = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
     e.preventDefault();
-    showToast("Email wird versendet...", "info");
+    setButtonText("Nachricht wird versendet...");
     sendEmail();
   };
 
   const sendEmail = () => {
     const params = {
+      firstName: firstName,
+      lastName: lastName,
       email: email,
-      name: name,
+      phone: phone,
       message: message,
     };
 
@@ -27,6 +33,7 @@ export const Contact: React.FC = () => {
       .then(({ data }) => {
         showToast(data, "success");
         setMessage("");
+        setButtonText("Nachricht senden");
       })
       .catch((error) => {
         showToast(`${error.name}: ${error.message}`, "error");
@@ -97,19 +104,28 @@ export const Contact: React.FC = () => {
                   <div className="col-md-6">
                     <div className="form-group">
                       <input
-                        id="form_name"
                         type="text"
                         name="name"
-                        placeholder="Name"
+                        placeholder="Vorname"
                         required={true}
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={(e) => setFirstName(e.target.value)}
                       />
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
                       <input
-                        id="form_email"
+                        type="text"
+                        name="name"
+                        placeholder="Nachname"
+                        required={true}
+                        onChange={(e) => setLastName(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="form-group">
+                      <input
                         type="email"
                         name="email"
                         placeholder="Email"
@@ -118,12 +134,22 @@ export const Contact: React.FC = () => {
                       />
                     </div>
                   </div>
+                  <div className="col-md-6">
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        name="phone"
+                        placeholder="Telefon (optional)"
+                        required={true}
+                        onChange={(e) => setPhone(e.target.value)}
+                      />
+                    </div>
+                  </div>
                 </div>
                 <div className="row">
                   <div className="col-md-12">
                     <div className="form-group">
                       <textarea
-                        id="form_message"
                         name="message"
                         placeholder="Nachricht"
                         rows={4}
@@ -134,7 +160,7 @@ export const Contact: React.FC = () => {
                     </div>
                     <input
                       type="submit"
-                      value="Absenden"
+                      value={buttonText}
                       className="buton buton-bg"
                       onClick={handleClick}
                     />

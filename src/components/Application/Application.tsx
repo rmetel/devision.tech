@@ -3,30 +3,47 @@ import React, { useState } from "react";
 import { getApiUrl, showToast } from "~/helpers";
 
 export const Application: React.FC = () => {
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [street, setStreet] = useState<string>("");
+  const [streetNumber, setStreetNumber] = useState<string>("");
+  const [zip, setZip] = useState<string>("");
+  const [city, setCity] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [name, setName] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+
+  const [buttonText, setButtonText] = useState<string>("Bewerbung senden");
 
   const apiUrl = getApiUrl();
 
   const handleClick = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
     e.preventDefault();
-    showToast("Email wird versendet...", "info");
-    sendEmail();
+    setButtonText("Bewerbung wird gesendet...");
+    sendApplication();
   };
 
-  const sendEmail = () => {
+  const sendApplication = () => {
     const params = {
+      firstName: firstName,
+      lastName: lastName,
+      street: street,
+      streetNumber: streetNumber,
+      zip: zip,
+      city: city,
       email: email,
-      name: name,
+      phone: phone,
       message: message,
     };
 
+    console.log(params);
+
     axios
-      .post(apiUrl + "/email", params)
+      .post(apiUrl + "/application", params)
       .then(({ data }) => {
         showToast(data, "success");
         setMessage("");
+        setButtonText("Bewerbung senden");
       })
       .catch((error) => {
         showToast(`${error.name}: ${error.message}`, "error");
@@ -54,27 +71,26 @@ export const Application: React.FC = () => {
                   <div className="col-md-6">
                     <div className="form-group">
                       <input
-                        id="form_name"
                         type="text"
-                        name="name"
-                        placeholder="Name"
+                        name="firstName"
+                        placeholder="Vorname"
                         required={true}
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={(e) => setFirstName(e.target.value)}
                       />
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
                       <input
-                        id="form_email"
-                        type="email"
-                        name="email"
-                        placeholder="Email"
+                        type="text"
+                        name="lastName"
+                        placeholder="Nachame"
                         required={true}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => setLastName(e.target.value)}
                       />
                     </div>
                   </div>
+
                   <div className="col-md-9">
                     <div className="form-group">
                       <input
@@ -83,47 +99,67 @@ export const Application: React.FC = () => {
                         name="street"
                         placeholder="Straße"
                         required={true}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => setStreet(e.target.value)}
                       />
                     </div>
                   </div>
                   <div className="col-md-3">
                     <div className="form-group">
                       <input
-                        id="form_email"
                         type="text"
                         name="streetNumber"
                         placeholder="Hausnummer"
                         required={true}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => setStreetNumber(e.target.value)}
                       />
                     </div>
                   </div>
                   <div className="col-md-3">
                     <div className="form-group">
                       <input
-                        id="form_email"
                         type="text"
                         name="zip"
                         placeholder="PLZ"
                         required={true}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => setZip(e.target.value)}
                       />
                     </div>
                   </div>
                   <div className="col-md-9">
                     <div className="form-group">
                       <input
-                        id="form_email"
                         type="text"
                         name="city"
                         placeholder="Stadt"
+                        required={true}
+                        onChange={(e) => setCity(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="form-group">
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
                         required={true}
                         onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
                   </div>
+                  <div className="col-md-6">
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        name="phone"
+                        placeholder="Telefon"
+                        required={true}
+                        onChange={(e) => setPhone(e.target.value)}
+                      />
+                    </div>
+                  </div>
                 </div>
+
                 <div className="row">
                   <div className="col-md-12">
                     <div className="form-group">
@@ -139,7 +175,7 @@ export const Application: React.FC = () => {
                     </div>
                     <input
                       type="submit"
-                      value="Bewerbung senden"
+                      value={buttonText}
                       className="buton buton-bg"
                       onClick={handleClick}
                     />

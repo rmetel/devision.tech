@@ -15,6 +15,7 @@ export default defineConfig({
         __dirname,
         "node_modules/izitoast/dist/css/iziToast.min.css",
       ),
+      "~scrollToTop": path.resolve(__dirname, "./public/css/scroll-to-top.css"),
     },
   },
   build: {
