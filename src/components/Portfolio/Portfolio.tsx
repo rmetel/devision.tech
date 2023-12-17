@@ -1,13 +1,14 @@
 import React from "react";
+import { Image } from "~/models";
 
 export const Portfolio: React.FC = () => {
-  const images = [
-    "/img/portfolio/portfolio-1.jpg",
-    "/img/portfolio/portfolio-1.jpg",
-    "/img/portfolio/portfolio-1.jpg",
-    "/img/portfolio/portfolio-1.jpg",
-    "/img/portfolio/portfolio-1.jpg",
-    "/img/portfolio/portfolio-1.jpg",
+  const images: Image[] = [
+    { id: "1", src: "/img/portfolio/portfolio-1.jpg" },
+    { id: "2", src: "/img/portfolio/portfolio-1.jpg" },
+    { id: "3", src: "/img/portfolio/portfolio-1.jpg" },
+    { id: "4", src: "/img/portfolio/portfolio-1.jpg" },
+    { id: "5", src: "/img/portfolio/portfolio-1.jpg" },
+    { id: "6", src: "/img/portfolio/portfolio-1.jpg" },
   ];
 
   return (
@@ -24,28 +25,26 @@ export const Portfolio: React.FC = () => {
           <div className="gallery text-center">
             {images.map((image) => {
               return (
-                <>
-                  <div className="col-md-4 col-sm-6 items graphic">
-                    <div className="item-img">
-                      <img src={image} alt="image" />
-                      <div className="item-img-overlay">
-                        <div className="overlay-info v-middle text-center">
-                          <h6 className="sm-titl">SOLAR-PANEL</h6>
-                          <div className="icons">
-                            <span className="icon link">
-                              <a href={image}>
-                                <i
-                                  className="fa fa-search-plus"
-                                  aria-hidden="true"
-                                ></i>
-                              </a>
-                            </span>
-                          </div>
+                <div key={image.id} className="col-md-4 col-sm-6 items graphic">
+                  <div className="item-img">
+                    <img src={image.src} alt="image" />
+                    <div className="item-img-overlay">
+                      <div className="overlay-info v-middle text-center">
+                        <h6 className="sm-titl">SOLAR-PANEL</h6>
+                        <div className="icons">
+                          <span className="icon link">
+                            <a href={image.src}>
+                              <i
+                                className="fa fa-search-plus"
+                                aria-hidden="true"
+                              ></i>
+                            </a>
+                          </span>
                         </div>
                       </div>
                     </div>
                   </div>
-                </>
+                </div>
               );
             })}
           </div>
