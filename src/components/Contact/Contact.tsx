@@ -35,8 +35,9 @@ export const Contact: React.FC = () => {
         setMessage("");
         setButtonText("Nachricht senden");
       })
-      .catch((error) => {
-        showToast(`${error.name}: ${error.message}`, "error");
+      .catch(() => {
+        showToast(`Ein Fehler ist aufgetreten`, "error");
+        setButtonText("Nachricht senden");
       });
   };
 
