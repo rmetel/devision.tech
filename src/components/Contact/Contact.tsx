@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { getApiUrl, showToast } from "~/helpers";
+import * as z from "zod";
 import axios from "axios";
 
 export const Contact: React.FC = () => {
@@ -9,36 +10,109 @@ export const Contact: React.FC = () => {
   const [phone, setPhone] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
+  const [validFirstName, setValidFirstName] = useState<boolean>(true);
+  const [validLastName, setValidLastName] = useState<boolean>(true);
+  const [validEmail, setValidEmail] = useState<boolean>(true);
+  const [validMessage, setValidMessage] = useState<boolean>(true);
+
+  const [submit, setSubmit] = useState<boolean>(false);
   const [buttonText, setButtonText] = useState<string>("Nachricht senden");
 
   const apiUrl = getApiUrl();
 
   const handleClick = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
     e.preventDefault();
-    setButtonText("Nachricht wird versendet...");
+    setSubmit(true);
     sendEmail();
   };
 
-  const sendEmail = () => {
-    const params = {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      phone: phone,
-      message: message,
-    };
+  const validateFirstName = (firstName: string): boolean => {
+    const isValid = z
+      .string()
+      .min(2, "Bitte geben Sie Ihren Vornamen ein.")
+      .safeParse(firstName).success;
 
-    axios
-      .post(apiUrl + "/email", params)
-      .then(({ data }) => {
-        showToast(data, "success");
-        setMessage("");
-        setButtonText("Nachricht senden");
-      })
-      .catch(() => {
-        showToast(`Ein Fehler ist aufgetreten`, "error");
-        setButtonText("Nachricht senden");
-      });
+    setValidFirstName(() => isValid);
+    setFirstName(firstName);
+
+    return isValid;
+  };
+
+  const validateLastName = (lastName: string): boolean => {
+    console.log("validateLastName");
+    const isValid = z
+      .string()
+      .min(2, "Bitte geben Sie Ihren Vornamen ein.")
+      .safeParse(lastName).success;
+
+    setValidLastName(() => isValid);
+    setLastName(lastName);
+
+    return isValid;
+  };
+
+  const validateEmail = (email: string): boolean => {
+    const isValid = z
+      .string()
+      .email("Bitte geben Sie eine Email ein.")
+      .safeParse(email).success;
+
+    setValidEmail(() => isValid);
+    setEmail(email);
+
+    return isValid;
+  };
+
+  const validateMessage = (message: string): boolean => {
+    const isValid = z
+      .string()
+      .min(1, "Bitte geben Sie eine Nachricht ein.")
+      .safeParse(message).success;
+
+    setValidMessage(() => isValid);
+    setMessage(message);
+
+    return isValid;
+  };
+
+  const validateForm = () => {
+    const firstNameOk = validateFirstName(firstName);
+    const lastNameOk = validateLastName(lastName);
+    const emailOk = validateEmail(email);
+    const messageOk = validateMessage(message);
+
+    return firstNameOk && lastNameOk && emailOk && messageOk;
+  };
+
+  const sendEmail = () => {
+    if (validateForm()) {
+      setButtonText("Nachricht wird versendet...");
+
+      const params = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone,
+        message: message,
+      };
+
+      axios
+        .post(apiUrl + "/email", params)
+        .then(({ data }) => {
+          showToast(data, "success");
+          setMessage("");
+          setButtonText("Nachricht senden");
+        })
+        .catch(() => {
+          showToast(`Ein Fehler ist aufgetreten`, "error");
+          setButtonText("Nachricht senden");
+        });
+    } else {
+      showToast(
+        "Bitte prüfen Sie Ihre Eingaben. Nicht alle Felder sind korrekt ausgefüllt.",
+        "error",
+      );
+    }
   };
 
   return (
@@ -109,8 +183,16 @@ export const Contact: React.FC = () => {
                         name="name"
                         placeholder="Vorname"
                         required={true}
-                        onChange={(e) => setFirstName(e.target.value)}
+                        onChange={(e) => {
+                          validateFirstName(e.target.value);
+                        }}
+                        className={!validFirstName ? "invalid" : ""}
                       />
+                      {!validFirstName && (
+                        <div style={{ color: "rgb(221, 76, 76)" }}>
+                          Bitte geben Sie Ihren Vornamen ein
+                        </div>
+                      )}
                     </div>
                   </div>
                   <div className="col-md-6">
@@ -120,10 +202,18 @@ export const Contact: React.FC = () => {
                         name="name"
                         placeholder="Nachname"
                         required={true}
-                        onChange={(e) => setLastName(e.target.value)}
+                        onChange={(e) => validateLastName(e.target.value)}
+                        className={!validLastName ? "invalid" : ""}
                       />
+                      {!validLastName && (
+                        <div style={{ color: "rgb(221, 76, 76)" }}>
+                          Bitte geben Sie Ihren Nachnamen ein
+                        </div>
+                      )}
                     </div>
                   </div>
+                </div>
+                <div className="row">
                   <div className="col-md-6">
                     <div className="form-group">
                       <input
@@ -131,8 +221,14 @@ export const Contact: React.FC = () => {
                         name="email"
                         placeholder="Email"
                         required={true}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => validateEmail(e.target.value)}
+                        className={submit && !validEmail ? "invalid" : ""}
                       />
+                      {!validEmail && (
+                        <div style={{ color: "rgb(221, 76, 76)" }}>
+                          Bitte geben Sie eine Email ein
+                        </div>
+                      )}
                     </div>
                   </div>
                   <div className="col-md-6">
@@ -155,9 +251,17 @@ export const Contact: React.FC = () => {
                         placeholder="Nachricht"
                         rows={4}
                         required={true}
-                        onChange={(e) => setMessage(e.target.value)}
+                        onChange={(e) => {
+                          validateMessage(e.target.value);
+                        }}
                         value={message}
+                        className={!validMessage ? "invalid" : ""}
                       ></textarea>
+                      {!validMessage && (
+                        <div style={{ color: "rgb(221, 76, 76)" }}>
+                          Bitte geben Sie eine Nachricht ein
+                        </div>
+                      )}
                     </div>
                     <input
                       type="submit"

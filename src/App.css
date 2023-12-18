@@ -69,3 +69,8 @@
 .nav-scroll .logo {
   display: block;
 }
+
+.contact .form input.invalid,
+.contact .form textarea.invalid {
+  border: 2px solid rgb(221, 76, 76);
+}
