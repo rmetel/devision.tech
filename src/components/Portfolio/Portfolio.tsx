@@ -3,12 +3,12 @@ import { Image } from "~/models";
 
 export const Portfolio: React.FC = () => {
   const images: Image[] = [
-    { id: "1", src: "/img/portfolio/portfolio-1.jpg" },
-    { id: "2", src: "/img/portfolio/portfolio-1.jpg" },
-    { id: "3", src: "/img/portfolio/portfolio-1.jpg" },
-    { id: "4", src: "/img/portfolio/portfolio-1.jpg" },
-    { id: "5", src: "/img/portfolio/portfolio-1.jpg" },
-    { id: "6", src: "/img/portfolio/portfolio-1.jpg" },
+    { id: "1", src: "/img/portfolio/thumbnail-1.jpg" },
+    { id: "2", src: "/img/portfolio/thumbnail-2.jpg" },
+    { id: "3", src: "/img/portfolio/thumbnail-3.jpg" },
+    { id: "4", src: "/img/portfolio/thumbnail-4.jpg" },
+    { id: "5", src: "/img/portfolio/thumbnail-5.jpg" },
+    { id: "6", src: "/img/portfolio/thumbnail-6.jpg" },
   ];
 
   return (
@@ -19,7 +19,7 @@ export const Portfolio: React.FC = () => {
       <div className="container">
         <div className="row">
           <div className="section-head">
-            <h3>Portfolio.</h3>
+            <h3>Galerie.</h3>
           </div>
 
           <div className="gallery text-center">
@@ -30,7 +30,7 @@ export const Portfolio: React.FC = () => {
                     <img src={image.src} alt="image" />
                     <div className="item-img-overlay">
                       <div className="overlay-info v-middle text-center">
-                        <h6 className="sm-titl">SOLAR-PANEL</h6>
+                        <h6 className="sm-titl">GROß-ANSICHT</h6>
                         <div className="icons">
                           <span className="icon link">
                             <a href={image.src}>

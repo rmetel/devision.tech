@@ -13,7 +13,7 @@ export const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/jobs" element={<Bewerbung />} />
+          <Route path="/job" element={<Bewerbung />} />
         </Routes>
       </Router>
       <ScrollToTop

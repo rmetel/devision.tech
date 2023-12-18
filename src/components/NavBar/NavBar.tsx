@@ -32,36 +32,38 @@ export const NavBar: React.FC = () => {
         {/* Collect the nav links, and other content for toggling */}
         <div className="collapse navbar-collapse" id="nav-icon-collapse">
           <ul className="nav navbar-nav navbar-right">
-            <li>
-              {location.pathname === "/" ? (
-                <a href="#" data-scroll-nav="0" className="active">
-                  Home
-                </a>
-              ) : (
+            {location.pathname === "/" ? (
+              <>
+                <li>
+                  <a href="#" data-scroll-nav="0" className="active">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a data-scroll-nav="1">Leistungen</a>
+                </li>
+                <li>
+                  <a href="#" data-scroll-nav="2">
+                    Galerie
+                  </a>
+                </li>
+                <li>
+                  <a href="#" data-scroll-nav="3">
+                    Kontakt
+                  </a>
+                </li>
+              </>
+            ) : (
+              <li>
                 <a href="/">Home</a>
-              )}
-            </li>
-            <li>
-              <a href="#" data-scroll-nav="1">
-                Leistungen
-              </a>
-            </li>
-            <li>
-              <a href="#" data-scroll-nav="2">
-                Portfolio
-              </a>
-            </li>
+              </li>
+            )}
             <li>
               <a
-                href="/jobs"
-                className={location.pathname === "/jobs" ? "active" : ""}
+                href="/job"
+                className={location.pathname === "/job" ? "active" : ""}
               >
-                Jobs
-              </a>
-            </li>
-            <li>
-              <a href="#" data-scroll-nav="3">
-                Kontakt
+                Job
               </a>
             </li>
           </ul>
