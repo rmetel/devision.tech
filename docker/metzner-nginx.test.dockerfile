@@ -2,7 +2,7 @@ FROM nginx
 
 WORKDIR /
 
-EXPOSE 82
+EXPOSE 80
 
 EXPOSE 443
 
