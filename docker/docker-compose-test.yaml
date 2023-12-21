@@ -5,7 +5,7 @@ services:
     container_name: metzner-nginx
     image: ddrram/metzner-nginx-test:1.0.0
     ports:
-      - "80:80"
+      - "82:80"
       - "443:443"
     depends_on:
       - metzner-frontend
