@@ -31,4 +31,4 @@ services:
 
 networks:
   metzner-app: {}
-# docker-compose -f docker/docker-compose-dev.yaml up -d
+# docker-compose -f docker/docker-compose-prod.yaml up -d
