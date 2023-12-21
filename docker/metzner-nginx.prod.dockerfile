@@ -17,6 +17,6 @@ CMD ["nginx", "-g", "daemon off;"]
 # docker run --name metzner-nginx-prod -dp 80:80 -p 443:443 metzner-nginx-prod
 
 # docker hub
-# docker build -t ddrram/metzner-nginx-prod:1.1.0 -f docker/metzner-nginx.prod.dockerfile .
-# docker push ddrram/metzner-nginx-prod:1.1.0
-# docker run --name metzner-nginx-prod -dp 8080:8080 ddrram/metzner-nginx-prod:1.1.0
+# docker build -t ddrram/metzner-nginx-prod:1.0.0 -f docker/metzner-nginx.prod.dockerfile .
+# docker push ddrram/metzner-nginx-prod:1.0.0
+# docker run --name metzner-nginx-prod -dp 80:80 -p 443:443 ddrram/metzner-nginx-prod:1.0.0
