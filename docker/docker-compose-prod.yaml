@@ -12,6 +12,8 @@ services:
       - metzner-backend
     networks:
       - metzner-app
+    volumes:
+      - /root/usr/share/certbot/conf:/etc/letsencrypt
 
   metzner-frontend:
     container_name: metzner-frontend
