@@ -19,6 +19,6 @@ CMD ["nginx", "-g", "daemon off;"]
 # docker run --name metzner-nginx-cert -dp 80:80 -p 443:443 metzner-nginx-cert
 
 # docker hub
-# docker build -t ddrram/metzner-nginx-cert:1.1.0 -f docker/metzner-nginx.cert.dockerfile .
-# docker push ddrram/metzner-nginx-cert:1.1.0
-# docker run --name metzner-nginx-cert -dp 8080:8080 ddrram/metzner-nginx-cert:1.1.0
+# docker build -t ddrram/metzner-nginx-cert:1.0.0 -f docker/metzner-nginx.cert.dockerfile .
+# docker push ddrram/metzner-nginx-cert:1.0.0
+# docker run --name metzner-nginx-cert -dp 8080:8080 ddrram/metzner-nginx-cert:1.0.0
