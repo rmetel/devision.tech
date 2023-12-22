@@ -19,6 +19,6 @@ ENTRYPOINT ["serve", "-s", "build"]
 # docker run --name metzner-frontend -dp 3000:3000 metzner-frontend
 
 # docker hub
-# docker build -t ddrram/metzner-frontend:1.1.0 -f docker/metzner-frontend.dockerfile .
-# docker push ddrram/metzner-frontend:1.1.0
-# docker run --name metzner-frontend -dp 3000:3000 ddrram/metzner-frontend:1.1.0
+# docker build -t ddrram/metzner-frontend:1.1.1 -f docker/metzner-frontend.dockerfile .
+# docker push ddrram/metzner-frontend:1.1.1
+# docker run --name metzner-frontend -dp 3000:3000 ddrram/metzner-frontend:1.1.1
