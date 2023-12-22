@@ -1,14 +1,14 @@
 import "izitoast/dist/js/iziToast.min";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import ScrollToTop from "scroll-to-top-react";
-import { NavBar, PreLoader } from "~/components";
+import { NavBar } from "~/components";
 import { Bewerbung, Home } from "~/views";
 import "./App.css";
 
 export const App = () => {
   return (
     <div className="App">
-      <PreLoader />
+      {/* <PreLoader /> */}
       <NavBar />
       <Router>
         <Routes>
