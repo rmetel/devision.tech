@@ -1,6 +1,18 @@
 import React from "react";
 
-export const NavBar: React.FC = () => {
+interface NavBarProps {
+  rootPath?: string;
+}
+
+export const NavBar: React.FC<NavBarProps> = ({ rootPath = "/" }) => {
+  const buildUrl = (rootPath: string, path: string) => {
+    return rootPath === "/"
+      ? rootPath.concat(path)
+      : rootPath.concat("/").concat(path);
+  };
+
+  const jobUrl = buildUrl(rootPath, "job");
+
   return (
     <nav className="navbar navbar-default">
       <div className="container">
@@ -32,7 +44,7 @@ export const NavBar: React.FC = () => {
         {/* Collect the nav links, and other content for toggling */}
         <div className="collapse navbar-collapse" id="nav-icon-collapse">
           <ul className="nav navbar-nav navbar-right">
-            {location.pathname === "/" ? (
+            {location.pathname === rootPath ? (
               <>
                 <li>
                   <a href="#" data-scroll-nav="0" className="active">
@@ -55,13 +67,13 @@ export const NavBar: React.FC = () => {
               </>
             ) : (
               <li>
-                <a href="/">Home</a>
+                <a href={rootPath}>Home</a>
               </li>
             )}
             <li>
               <a
-                href="/job"
-                className={location.pathname === "/job" ? "active" : ""}
+                href={jobUrl}
+                className={location.pathname === jobUrl ? "active" : ""}
               >
                 Job
               </a>
