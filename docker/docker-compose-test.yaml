@@ -3,7 +3,7 @@ version: "3"
 services:
   metzner-nginx:
     container_name: metzner-nginx
-    image: ddrram/metzner-nginx-test:1.1.0
+    image: ddrram/metzner-nginx-test:1.0.0
     ports:
       - "80:80"
       - "443:443"
