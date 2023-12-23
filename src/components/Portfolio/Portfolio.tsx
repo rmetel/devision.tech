@@ -1,4 +1,5 @@
 import React from "react";
+import { buildUrl } from "~/helpers";
 import { Image } from "~/models";
 
 export const Portfolio: React.FC = () => {
@@ -27,13 +28,21 @@ export const Portfolio: React.FC = () => {
               return (
                 <div key={image.id} className="col-md-4 col-sm-6 items graphic">
                   <div className="item-img">
-                    <img src={image.src} alt="image" />
+                    <img
+                      src={buildUrl(import.meta.env.BASE_URL, image.src)}
+                      alt="image"
+                    />
                     <div className="item-img-overlay">
                       <div className="overlay-info v-middle text-center">
                         <h6 className="sm-titl">GROß-ANSICHT</h6>
                         <div className="icons">
                           <span className="icon link">
-                            <a href={image.src}>
+                            <a
+                              href={buildUrl(
+                                import.meta.env.BASE_URL,
+                                image.src,
+                              )}
+                            >
                               <i
                                 className="fa fa-search-plus"
                                 aria-hidden="true"

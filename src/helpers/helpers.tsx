@@ -35,4 +35,14 @@ export const getApiUrl = () => {
   return isLocal ? localHost + apiEndpoint : apiEndpoint;
 };
 
-export const scrollToTop = $("html, body").animate({ scrollTop: 0 }, "slow");
+// export const scrollToTop = $("html, body").animate({ scrollTop: 0 }, "slow");
+
+export const buildUrl = (basePath: string, path: string) => {
+  if (path.startsWith("/")) {
+    path = path.slice(1, path.length);
+  }
+
+  return basePath.endsWith("/")
+    ? basePath.concat(path)
+    : basePath.concat("/").concat(path);
+};

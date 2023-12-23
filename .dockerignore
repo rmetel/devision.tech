@@ -5,7 +5,6 @@ coverage
 docker
 node_modules
 .dockerignore
-.env
 .eslintrc.cjs
 .git
 .gitignore

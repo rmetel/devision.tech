@@ -1,7 +1,5 @@
 import React from "react";
-import { Footer } from "../../components/Footer";
-import { Hero } from "../../components/Hero";
-import { Application } from "~/components";
+import { Application, Footer, Hero } from "~/components";
 
 export const Bewerbung: React.FC = () => {
   return (

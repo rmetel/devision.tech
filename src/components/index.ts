@@ -6,4 +6,5 @@ export { NavBar } from "./NavBar";
 export { Numbers } from "./Numbers";
 export { Portfolio } from "./Portfolio";
 export { PreLoader } from "./PreLoader";
+export { Preview } from "./Preview";
 export { Services } from "./Services";

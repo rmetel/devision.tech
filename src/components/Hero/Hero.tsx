@@ -1,4 +1,5 @@
 import React from "react";
+import { buildUrl } from "~/helpers";
 
 interface HeroProps {
   headline: string;
@@ -21,7 +22,10 @@ export const Hero: React.FC<HeroProps> = ({
       className="header"
       data-scroll-index="0"
       style={{
-        backgroundImage: "url(/img/tunnel-2033983_1280.jpg)",
+        backgroundImage: `url(${buildUrl(
+          import.meta.env.BASE_URL,
+          "/img/tunnel-2033983_1280.jpg",
+        )})`,
       }}
       data-stellar-background-ratio="0.8"
     >

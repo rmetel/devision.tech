@@ -6,7 +6,7 @@ import * as path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "./",
+  base: "/dev/",
   resolve: {
     alias: {
       "~": path.resolve(__dirname, "./src"),
@@ -21,8 +21,10 @@ export default defineConfig({
   },
   build: {
     outDir: "build",
+    assetsDir: "",
   },
   server: {
+    strictPort: true,
     port: 3000,
     open: false,
     https: {
