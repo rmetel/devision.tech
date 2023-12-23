@@ -10,6 +10,8 @@ RUN rm /usr/share/nginx/html/*
 
 COPY ./nginx/nginx.test.conf /etc/nginx/nginx.conf
 
+COPY ./public /var/www/public
+
 CMD ["nginx", "-g", "daemon off;"]
 
 # terminal
