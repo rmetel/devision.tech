@@ -5,18 +5,19 @@ export const NavBar: React.FC = () => {
   const baseUrl = import.meta.env.BASE_URL;
   const jobUrl = buildUrl(baseUrl, "/job");
   const logoUrl = buildUrl(baseUrl, "/img/logo.png");
-  const showMenu = !(baseUrl === "/dev/" && location.pathname === "/");
+  const previewUrl = buildUrl(baseUrl, "/preview");
+  const isPreview = baseUrl === "/dev/" && location.pathname === previewUrl;
 
   return (
     <nav
       className="navbar navbar-default"
       style={{
-        background: !showMenu ? "#333" : "",
+        background: isPreview ? "#333" : "",
       }}
     >
       <div className="container">
         <div className="navbar-header">
-          {showMenu && (
+          {!isPreview && (
             <button
               type="button"
               className="navbar-toggle collapsed"
@@ -41,7 +42,7 @@ export const NavBar: React.FC = () => {
           </a>
         </div>
 
-        {showMenu && (
+        {!isPreview && (
           <div className="collapse navbar-collapse" id="nav-icon-collapse">
             <ul className="nav navbar-nav navbar-right">
               {location.pathname === baseUrl ? (

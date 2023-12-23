@@ -3,7 +3,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import ScrollToTop from "scroll-to-top-react";
 import "./App.css";
 import { Bewerbung, Home } from "./views";
-import { NavBar } from "./components";
+import { NavBar, Preview } from "./components";
 import { buildUrl } from "./helpers";
 
 export const App = () => {
@@ -15,14 +15,9 @@ export const App = () => {
       <NavBar />
       <Router basename={baseUrl}>
         <Routes>
-          {/* <Route
-            path="/"
-            element={
-              import.meta.env.VITE_STAGE === "test" ? <Preview /> : <Home />
-            }
-          /> */}
-          <Route path={"/"} element={<Home />} />
-          <Route path={"/job"} element={<Bewerbung />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/job" element={<Bewerbung />} />
+          <Route path="/preview" element={<Preview />} />
         </Routes>
       </Router>
       <ScrollToTop
