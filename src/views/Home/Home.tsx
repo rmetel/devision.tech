@@ -6,7 +6,7 @@ export const Home: React.FC = () => {
     <>
       <Hero
         headline="Welcome"
-        blc="by"
+        blc="to"
         wordOne="Devision.tech"
         wordTwo="web development"
       />
