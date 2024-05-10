@@ -38,3 +38,12 @@ workflows:
       - build_and_deploy:
           context:
             - build-context
+# https://circleci.com/docs/deploy-over-ssh/
+# https://circleci.com/docs/configuration-reference/#add-ssh-keys
+
+# ssh key
+# locally
+# cd ~/.ssh
+# ssh-keygen -t ed25519 -C "ralph.metel@gmx.de"
+# on prod server
+# echo "public-key" >> authorized_keys
