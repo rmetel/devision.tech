@@ -19,7 +19,7 @@ jobs:
             tar -czvf devision.tech.tar.gz devision.tech
       - add_ssh_keys:
           fingerprints:
-            - "2b:a4:ba:38:78:e6:13:5e:53:bc:8e:8b:59:3a:c0:fe"
+            - "SHA256:KZtig5dHjW53fw8A3R1UbBLAtvP0SQ/0Aih+3FpYBWI"
       - run:
           name: Add known host
           command: ssh-keyscan $SSH_HOST >> ~/.ssh/known_hosts
