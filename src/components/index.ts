@@ -1,10 +1,7 @@
+export { Apps } from "./Apps";
 export { Application } from "./Application";
 export { Contact } from "./Contact";
 export { Footer } from "./Footer";
 export { Hero } from "./Hero";
 export { NavBar } from "./NavBar";
-export { Numbers } from "./Numbers";
-export { Portfolio } from "./Portfolio";
 export { PreLoader } from "./PreLoader";
-export { Preview } from "./Preview";
-export { Services } from "./Services";

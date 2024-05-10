@@ -1,1 +1,0 @@
-export { Bewerbung } from "./Bewerbung";

@@ -16,7 +16,7 @@ export const Contact: React.FC = () => {
   const [validMessage, setValidMessage] = useState<boolean>(true);
 
   const [submit, setSubmit] = useState<boolean>(false);
-  const [buttonText, setButtonText] = useState<string>("Nachricht senden");
+  const [buttonText, setButtonText] = useState<string>("Send message");
 
   const apiUrl = getApiUrl();
 
@@ -120,22 +120,11 @@ export const Contact: React.FC = () => {
       <div className="container">
         <div className="row">
           <div className="section-head">
-            <h3>Kontakt.</h3>
+            <h3>Contact.</h3>
           </div>
           <div className="col-md-offset-1 col-md-10">
-            <div className="info text-center mb-50">
-              <div className="col-md-4">
-                <div className="item">
-                  <span className="icon">
-                    <i className="fa fa-location-arrow" aria-hidden="true"></i>
-                  </span>
-                  <h6>Adresse</h6>
-                  <p>
-                    <strong>Scherrstraße 8a, 76137 Karlsruhe</strong>
-                  </p>
-                </div>
-              </div>
-              <div className="col-md-4">
+            {/* <div className="info text-center mb-50">
+              <div className="col-md-4 col-md-offset-4">
                 <div className="item">
                   <span className="icon">
                     <i className="fa fa-envelope" aria-hidden="true"></i>
@@ -143,28 +132,15 @@ export const Contact: React.FC = () => {
                   <h6>Email</h6>
                   <p>
                     <strong>
-                      <a href="mailto:info@metzner-gruppe.com">
-                        info@metzner-gruppe.com
+                      <a href="mailto:ralph.metel@gmail.com">
+                        ralph.metel@gmail.com
                       </a>
                     </strong>
                   </p>
                 </div>
               </div>
-              <div className="col-md-4">
-                <div className="item">
-                  <span className="icon">
-                    <i className="fa fa-phone" aria-hidden="true"></i>
-                  </span>
-                  <h6>Mobil</h6>
-                  <p>
-                    <strong>
-                      <a href="tel:+4917684928260">+49 176 84928260</a>
-                    </strong>
-                  </p>
-                </div>
-              </div>
               <div className="clearfix"></div>
-            </div>
+            </div> */}
 
             <form
               className="form"
@@ -181,7 +157,7 @@ export const Contact: React.FC = () => {
                       <input
                         type="text"
                         name="name"
-                        placeholder="Vorname"
+                        placeholder="Firstname"
                         required={true}
                         onChange={(e) => {
                           validateFirstName(e.target.value);
@@ -190,7 +166,7 @@ export const Contact: React.FC = () => {
                       />
                       {!validFirstName && (
                         <div style={{ color: "rgb(221, 76, 76)" }}>
-                          Bitte geben Sie Ihren Vornamen ein
+                          Please fill in your firstname
                         </div>
                       )}
                     </div>
@@ -200,14 +176,14 @@ export const Contact: React.FC = () => {
                       <input
                         type="text"
                         name="name"
-                        placeholder="Nachname"
+                        placeholder="Lastname"
                         required={true}
                         onChange={(e) => validateLastName(e.target.value)}
                         className={!validLastName ? "invalid" : ""}
                       />
                       {!validLastName && (
                         <div style={{ color: "rgb(221, 76, 76)" }}>
-                          Bitte geben Sie Ihren Nachnamen ein
+                          Please fill in your lastname
                         </div>
                       )}
                     </div>
@@ -226,7 +202,7 @@ export const Contact: React.FC = () => {
                       />
                       {!validEmail && (
                         <div style={{ color: "rgb(221, 76, 76)" }}>
-                          Bitte geben Sie eine Email ein
+                          Please fill in your email
                         </div>
                       )}
                     </div>
@@ -236,7 +212,7 @@ export const Contact: React.FC = () => {
                       <input
                         type="text"
                         name="phone"
-                        placeholder="Telefon (optional)"
+                        placeholder="Phone (optional)"
                         required={true}
                         onChange={(e) => setPhone(e.target.value)}
                       />
@@ -248,7 +224,7 @@ export const Contact: React.FC = () => {
                     <div className="form-group">
                       <textarea
                         name="message"
-                        placeholder="Nachricht"
+                        placeholder="Message"
                         rows={4}
                         required={true}
                         onChange={(e) => {
@@ -259,7 +235,7 @@ export const Contact: React.FC = () => {
                       ></textarea>
                       {!validMessage && (
                         <div style={{ color: "rgb(221, 76, 76)" }}>
-                          Bitte geben Sie eine Nachricht ein
+                          Please fill in your message
                         </div>
                       )}
                     </div>

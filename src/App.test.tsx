@@ -7,7 +7,7 @@ describe("<App />", () => {
   test("should render app", async () => {
     render(<App />);
     expect(
-      await screen.findByRole("link", { name: "Metzner" }),
+      await screen.findByRole("link", { name: "Devision" }),
     ).toBeInTheDocument();
   });
 });

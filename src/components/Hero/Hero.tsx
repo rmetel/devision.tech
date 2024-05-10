@@ -6,7 +6,6 @@ interface HeroProps {
   blc: string;
   wordOne: string;
   wordTwo: string;
-  applyButton?: boolean;
 }
 
 export const Hero: React.FC<HeroProps> = ({
@@ -14,7 +13,6 @@ export const Hero: React.FC<HeroProps> = ({
   blc,
   wordOne,
   wordTwo,
-  applyButton = false,
 }) => {
   return (
     <section
@@ -22,10 +20,7 @@ export const Hero: React.FC<HeroProps> = ({
       className="header"
       data-scroll-index="0"
       style={{
-        backgroundImage: `url(${buildUrl(
-          import.meta.env.BASE_URL,
-          "/img/tunnel-2033983_1280.jpg",
-        )})`,
+        backgroundImage: `url(${buildUrl("/", "img/notebook-coffee.jpg")})`,
       }}
       data-stellar-background-ratio="0.8"
     >
@@ -41,26 +36,6 @@ export const Hero: React.FC<HeroProps> = ({
                   <b>{wordTwo}</b>
                 </span>
               </h1>
-
-              {applyButton ? (
-                <a href="#0" data-scroll-goto="100">
-                  <span className="buton buton-bg">Jetzt bewerben</span>
-                </a>
-              ) : (
-                <div className="social-icon">
-                  <a href="#0">
-                    <span>
-                      <i className="fa fa-facebook" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                  &nbsp;&nbsp;
-                  <a href="#0">
-                    <span>
-                      <i className="fa fa-instagram" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                </div>
-              )}
             </div>
           </div>
         </div>
